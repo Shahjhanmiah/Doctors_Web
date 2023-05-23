@@ -12,6 +12,7 @@ const AppiontmentOption = ({ appiontmentOption,setTreatment }) => {
                     <p>{slots.length} {slots.length > 1 ? "space":"sapce" }</p>
                     <div className=" justify-ceter">
                         <label 
+                        disabled={slots.length === 0}
                         htmlFor="booking-modal"  
                         className="btn btn-primary"
                         onClick={()=>setTreatment(appiontmentOption)}
