@@ -16,7 +16,7 @@ const AppiontmentBanner = ({selectedDate,setSelectedDate}) => {
                         selected={selectedDate}
                         onSelect={setSelectedDate}
                         />
-                        <p>You  have  selectedDate:{format(selectedDate,"PP")}</p>
+                        
                             
                        
                     </div>
