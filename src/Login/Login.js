@@ -1,35 +1,43 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { Link } from 'react-router-dom';
 
 const Login = () => {
     const { register, handleSubmit } = useForm()
     const [data, setData] = useState('')
     return (
-        <div>
-            <div className='text-4xl text-center'>Loign</div>
+        <div className='h-[800px flex justify-center items-center'>
+        <div className='w-96 p-7'>
+            <h1 className='text-2xl'>Login</h1>
+       
             <form onSubmit={handleSubmit((data) => setData(JSON.stringify(data)))}>
 
-                <input {...register("firstName")} placeholder="First name" />
                 <div className="form-control w-full max-w-xs">
                     <label className="label">
-                        <span className="label-text">What is your name?</span>
-                        <span className="label-text-alt">Top Right label</span>
+                        <span className="label-text">Email</span>
+                        
                     </label>
-                    <input type="text" placeholder="Type here" className="input input-bordered w-full max-w-xs" />
-                    <label className="label">
-                        <span className="label-text-alt">Bottom Left label</span>
-                        <span className="label-text-alt">Bottom Right label</span>
-                    </label>
+                    <input type='text' {...register("email")}  className="input input-bordered w-full max-w-xs"  />
+                   
                 </div>
-                <select {...register("category", { required: true })}>
-                    <option value="">Select...</option>
-                    <option value="A">Option A</option>
-                    <option value="B">Option B</option>
-                </select>
-                <textarea {...register("aboutYou")} placeholder="About you" />
+                <div className="form-control w-full max-w-xs">
+                    <label className="label">
+                        <span className="label-text">Password</span>
+                        
+                    </label>
+                    <input type='password' {...register("password")}  className="input input-bordered w-full max-w-xs"  />
+                    <label className="label">
+                        <span className="label-text">Forget Password</span>
+                        
+                    </label>
+                   
+                </div>
+               
                 <p>{data}</p>
-                <input type="submit" />
+                <input className='btn btn-accent w-full'value='Login' type="submit" />
             </form>
+            <p>New Doctors Portal<Link className='text-orange-600' to='/sinup'>Create in Signup</Link> </p>
+        </div>
         </div>
     );
 };
